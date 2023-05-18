@@ -6,23 +6,15 @@ import headerImg from "../assets/img/header-img.svg"
 export const Banner = () => {
   const [ loopNum, setLoopNum ] = useState(0);
   const [ isDeleting, setIsDeleting ] = useState(false);
-  const [text, setText ] = useState('');
+  const [ text, setText ] = useState('');
   const [ delta, setDelta ] = useState(300 - Math.random()*100 );
   const toRotate = [ "Web developer", "UI/UX Design", "Game developer" ];
   const period = 2000;
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta)
-
-    return () => { clearInterval(ticker) }
-  }, [text])
-
   const tick = () => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1 ) : fullText.substring(0, text.length + 1 );
+    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
 
@@ -39,6 +31,14 @@ export const Banner = () => {
       setDelta(500);
     }
   }
+
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta)
+
+    return () => { clearInterval(ticker) };
+  }, [text])
 
   return (
     <section className="banner" id="home">
