@@ -4,8 +4,8 @@ import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from "../assets/img/header-img.svg"
 
 export const Banner = () => {
-  const [ loopNum, setLoopNum ] = useStete(0);
-  const [ isDeleting, setIsDeleting ] = useStete(false);
+  const [ loopNum, setLoopNum ] = useState(0);
+  const [ isDeleting, setIsDeleting ] = useState(false);
   const [text, setText ] = useState('');
   const [ delta, setDelta ] = useState(300 - Math.random()*100 );
   const toRotate = [ "Web developer", "UI/UX Design", "Game developer" ];
