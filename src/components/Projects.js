@@ -32,8 +32,13 @@ export const Projects = () => {
       <Container>
         <Row>
           <Col>
-            <h2>Projects</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolount mollit anim id est laborum."</p>
+          <TrackVisibility>
+            {({ isVisible }) => 
+              <div className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                <h2>Projects</h2>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolount mollit anim id est laborum."</p>
+              </div>}
+            </TrackVisibility>
             <Tab.Container id="projects-tabs" defaultActiveKey="first">
               <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                 <Nav.Item>
